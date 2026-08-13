@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  
+  body {
+    background-color: #FAF8F5;
+    color: #1A1A1A;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  /* Luxury Gold Gradient Text */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #B38628 0%, #D4AF37 40%, #F5D77F 60%, #AA7C1E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Shimmering Metallic Gold Border */
+  .border-gold-gradient {
+    border-image: linear-gradient(135deg, #DFBF69, #C5A059, #8C6D23) 1;
+  }
+
+  /* Luxury Glassmorphism */
+  .luxury-glass {
+    background: rgba(253, 251, 247, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(223, 191, 105, 0.25);
+  }
+
+  .luxury-glass-dark {
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+  }
+
+  /* Gold Glow Effects */
+  .gold-glow-sm {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  }
+
+  .gold-glow-md {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+  }
+
+  /* Custom Scrollbar for Luxury Tray */
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #F5EFEB;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #DFC075;
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #C5A059;
+  }
+}
+
+/* Luxury animations */
+@keyframes goldShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.shimmer-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: goldShimmer 3s infinite ease-in-out;
+}
